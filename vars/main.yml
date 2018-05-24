@@ -14,4 +14,3 @@ yum_libraries_utilities:
 - iptables-services
 - kernel-devel
 - kernel-tools
-- gtar
