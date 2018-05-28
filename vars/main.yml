@@ -6,6 +6,8 @@ apps_dir: /apps
 # Libraries and utilities
 yum_libraries_utilities:
 - ntp
+- lsof
+- wget
 - policycoreutils-python
 - zip
 - unzip
