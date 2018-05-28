@@ -1,0 +1,19 @@
+---
+# Extra Packages for Enterprise Linux (EPEL)
+- name: Extra Packages for Enterprise Linux (EPEL)
+  yum: name=epel-release state=latest
+
+# Libraries and utilities for RedHat
+- name: Libraries and utilities
+  yum: name={{ item }} state=present
+  with_items: "{{ yum_libraries_utilities }}"
+
+# IPTABLES
+- name: Start IPTABLES service
+  service: name=iptables enabled=yes state=started
+
+# SELinux
+- name: SELinux should be enforcing
+  lineinfile: dest=/etc/selinux/config regexp=^SELINUX= line=SELINUX=enforcing
+- name: Enable SELinux
+  command: setenforce 1

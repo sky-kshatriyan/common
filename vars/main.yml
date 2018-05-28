@@ -4,6 +4,16 @@ data_dir: /data
 apps_dir: /apps
 
 # Libraries and utilities
+apt_libraries_utilities:
+- ntp
+- lsof
+- wget
+- policycoreutils-python
+- zip
+- unzip
+- kernel-devel
+- kernel-tools
+
 yum_libraries_utilities:
 - ntp
 - lsof
