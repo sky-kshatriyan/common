@@ -8,11 +8,10 @@ apt_libraries_utilities:
 - ntp
 - lsof
 - wget
-- policycoreutils-python
+- python-software-properties
 - zip
 - unzip
-- kernel-devel
-- kernel-tools
+- build-essential
 
 yum_libraries_utilities:
 - ntp
