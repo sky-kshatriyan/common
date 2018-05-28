@@ -13,11 +13,3 @@
 
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
-
-# Date and time
-- name: Remove old timezone file
-  file: path=/etc/localtime state=absent
-- name: Set Asia/Kolkata timezone
-  file: src=/usr/share/zoneinfo/Asia/Kolkata dest=/etc/localtime state=link
-- name: Ensure NTP is running
-  service: name=ntpd state=started enabled=yes

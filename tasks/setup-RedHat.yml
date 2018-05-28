@@ -17,3 +17,11 @@
   lineinfile: dest=/etc/selinux/config regexp=^SELINUX= line=SELINUX=enforcing
 - name: Enable SELinux
   command: setenforce 1
+
+  # Date and time
+- name: Remove old timezone file
+  file: path=/etc/localtime state=absent
+- name: Set Asia/Kolkata timezone
+  file: src=/usr/share/zoneinfo/Asia/Kolkata dest=/etc/localtime state=link
+- name: Ensure NTP is running
+  service: name=ntpd state=started enabled=yes
