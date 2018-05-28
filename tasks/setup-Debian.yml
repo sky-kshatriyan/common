@@ -1,5 +1,5 @@
 ---
 # Libraries and utilities for Debian
 - name: Libraries and utilities
-  yum: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items: "{{ apt_libraries_utilities }}"
