@@ -3,6 +3,7 @@
 - name: Libraries and utilities
   apt: name={{ item }} state=present
   with_items: "{{ apt_libraries_utilities }}"
+  # update_cache: yes
 
   # Date and time
 - name: Remove old timezone file
