@@ -1,25 +1,22 @@
-SDCOMMON
-=========
-
-Install and configures directory structure and required packages.
+Ansible Role: common
+=====================
+Install and configures directory structure and required packages on RedHat/CentOS and Debian/Ubuntu
 
 Requirements
 ------------
+Requires the EPEL repository for RedHat/CentOS
 
-```
-None
-```
 
 Role Variables
 --------------
-
+Data and Apps diretory for all installations
 ```
----
-# vars file for common
 data_dir: /data
 apps_dir: /apps
+```
 
-# Libraries and utilities
+Libraries and utilities for Debian/Ubuntu systems
+```
 apt_libraries_utilities:
 - ntp
 - lsof
@@ -28,7 +25,9 @@ apt_libraries_utilities:
 - zip
 - unzip
 - build-essential
-
+```
+Libraries and utilities for RedHat/CentOS
+```
 yum_libraries_utilities:
 - ntp
 - lsof
@@ -56,15 +55,11 @@ Example Playbook
 Use the following playbook:
 
 ```
-- hosts: test_servers
+- hosts: all
   become: yes
   gather_facts: yes
   roles:
     - role: common
-    - role: sdjava
-      tags: java
-    - role: maven
-      tags: maven
 ```
 
 License
@@ -75,4 +70,4 @@ Licensed under the Apache License V2.0. See the [LICENSE file](LICENSE) for deta
 Author Information
 ------------------
 
-Author: Shashi yebbare
+This role was created in 2014 by [Shashi Yebbare](https://www.skydevops.co.in/), author of [SkyDevops](https://www.skydevops.co.in/).
